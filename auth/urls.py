@@ -39,7 +39,7 @@ urlpatterns = [
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
-    path('swagger(?P<format>\.json|\.yaml)$',
+    path('api/swagger.json/',
         schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('', schema_view.with_ui('swagger',
                                            cache_timeout=0), name='schema-swagger-ui'),

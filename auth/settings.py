@@ -178,3 +178,9 @@ ACCOUNT_USERNAME_BLACKLIST = ['robot', 'hacker', 'virus', 'spam']
 ACCOUNT_FORMS = {
     'signup': 'auth.forms.CustomSignupForm',
 }
+
+# REST_AUTH_SERIALIZERS = {
+#     'LOGIN_SERIALIZER': 'accounts.serializers.LoginUserSerializer',
+#     'TOKEN_SERIALIZER': 'accounts.serializers.LoginUserSerializer',
+#
+# }

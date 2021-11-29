@@ -35,12 +35,15 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
+# from accounts.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    # path('rest-auth/login/',
+    #      LoginView.as_view({'post':'login'}), name='create'),
     path('api/swagger.json/',
         schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('', schema_view.with_ui('swagger',
@@ -53,5 +56,6 @@ urlpatterns = [
 
     path('student/<int:pk>/',
          StudentViewSet.as_view({'patch': 'update', 'get': 'retrieve'}), name='student'),
+
 
 ]

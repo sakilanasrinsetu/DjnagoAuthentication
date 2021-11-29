@@ -20,6 +20,8 @@ from rest_framework import permissions
 from drf_yasg2.views import get_schema_view
 from drf_yasg2 import openapi
 
+from accounts.views import *
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -45,5 +47,11 @@ urlpatterns = [
                                            cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc',
                                          cache_timeout=0), name='schema-redoc'),
+
+    path('student/', StudentViewSet.as_view({'post': 'create',
+                                       'get': 'list', 'delete': 'destroy'}), name='student'),
+
+    path('student/<int:pk>/',
+         StudentViewSet.as_view({'patch': 'update', 'get': 'retrieve'}), name='student'),
 
 ]
